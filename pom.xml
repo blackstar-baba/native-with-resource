@@ -9,14 +9,17 @@
     <version>1.0-SNAPSHOT</version>
 
     <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <native.maven.plugin.version>0.9.22</native.maven.plugin.version>
         <junit.jupiter.version>5.8.1</junit.jupiter.version>
         <junit.platform.native.version>0.9.23-SNAPSHOT</junit.platform.native.version>
         <imageName>example-app</imageName>
         <mainClass>org.graalvm.demo.Application</mainClass>
+        <!-- add this to auto-detect resources -->
+        <resources.autodetection.enabled>true</resources.autodetection.enabled>
+        <resources.autodetection.detectionExclusionPatterns>META-INF/.*</resources.autodetection.detectionExclusionPatterns>
     </properties>
 
     <dependencies>
@@ -68,6 +71,8 @@
                         </executions>
                         <configuration>
                             <fallback>false</fallback>
+                            <verbose>true</verbose>
+                            <debug>true</debug>
                         </configuration>
                     </plugin>
                 </plugins>
@@ -89,8 +94,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <source>17</source>
-                    <target>17</target>
+                    <source>11</source>
+                    <target>11</target>
                 </configuration>
             </plugin>
 

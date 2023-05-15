@@ -8,6 +8,9 @@ import java.util.stream.Collectors;
 
 public class Application {
     public static List<String> getMessages() throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(Application.class.getResourceAsStream("/json/message.json")))) {
+            reader.lines().filter(s -> !s.isEmpty()).forEach(System.out::println);
+        }
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(Application.class.getResourceAsStream("/message.txt")))) {
             return reader.lines().filter(s -> !s.isEmpty()).collect(Collectors.toList());
         }
