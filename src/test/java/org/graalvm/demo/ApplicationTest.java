@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 class ApplicationTest {
 
     public static List<String> getExpectedMessages() throws IOException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(ApplicationTest.class.getResourceAsStream("message.txt")))) {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(ApplicationTest.class.getResourceAsStream("expected.txt")))) {
             return reader.lines().filter(s -> !s.isEmpty()).collect(Collectors.toList());
         }
     }
